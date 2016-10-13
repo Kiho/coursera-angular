@@ -21,7 +21,7 @@
 
     var checkNotEmpty = function(item) {
         return item && item.trim();
-    }
+    };
 
     var countItems = function(menuItems) {
         return menuItems.split(',').filter(checkNotEmpty).length;
@@ -35,13 +35,13 @@
         return 'Enjoy!';
       }
       return 'Please enter data first';
-    }
+    };
 
     var getColor = function (count) {
       if (count > 0) {
         return 'green';
       }
       return 'red';
-    }
+    };
   }
 })();
