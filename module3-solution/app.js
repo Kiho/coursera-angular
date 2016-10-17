@@ -37,10 +37,10 @@
 
     menu.searchText = "";
     menu.find = function () {
-     MenuSearchService.getMatchedMenuItems(menu.searchText)
-     .then(function (result) {
+      MenuSearchService.getMatchedMenuItems(menu.searchText)
+      .then(function (result) {
        menu.items = result;
-     });
+      });
     }
 
     menu.removeItem = function (index) {
@@ -67,8 +67,9 @@
           items = [];
         }
         else {
+          searchTerm = searchTerm.toLowerCase();
           items = result.data.menu_items.filter(function (item) {
-            return item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+            return item.description.toLowerCase().indexOf(searchTerm) > -1;
           });
         }
         return items;
