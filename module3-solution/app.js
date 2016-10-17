@@ -68,7 +68,7 @@
         }
         else {
           items = result.data.menu_items.filter(function (item) {
-            return item.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+            return item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
           });
         }
         return items;
