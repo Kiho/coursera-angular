@@ -27,7 +27,7 @@
     var list = this;
 
     list.notFound = function () {
-      return !(list.items && list.items.length > 0)
+      return list.items && list.items.length == 0;
     }
   }
 
@@ -37,9 +37,8 @@
 
     menu.searchText = "";
     menu.find = function () {
-      MenuSearchService.getMatchedMenuItems(menu.searchText)
-      .then(function (result) {
-       menu.items = result;
+      MenuSearchService.getMatchedMenuItems(menu.searchText).then(function (result) {
+        menu.items = result;
       });
     }
 
