@@ -5,13 +5,10 @@
   .controller('ItemsController', ItemsController);
 
   // Version with resolving to 1 item based on $stateParams in route config
-  ItemsController.$inject = ['$stateParams', 'MenuDataService'];
-  function ItemsController($stateParams, MenuDataService) {
+  ItemsController.$inject = ['$stateParams', 'items'];
+  function ItemsController($stateParams, items) {
     var itemList = this;
-    MenuDataService.getItemsForCategory($stateParams.shortName)
-      .then(function (result) {
-        itemList.items = result;
-      });
+    itemList.items = items;
   }
 
 })();

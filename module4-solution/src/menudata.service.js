@@ -11,31 +11,25 @@
     var items = [];
     var categories = [];
 
-    function getCategories() {
+    function getData(query) {
       var response = $http({
         method: "GET",
-        url: (ApiBasePath + "/categories.json")
-      });
-      return response;
-    };
-
-    function getItems(searchTerm) {
-      var response = $http({
-        method: "GET",
-        url: (ApiBasePath + "/menu_items.json?category=" + searchTerm)
+        url: (ApiBasePath + query)
       });
       return response;
     };
 
     service.getAllCategories = function () {
-      return getCategories().then(function (result) {
+      return getData("/categories.json").then(function (result) {
         categories = result.data;
         return categories;
       })
     };
 
     service.getItemsForCategory = function (categoryShortName) {
-      return getItems(categoryShortName).then(function (result) {
+      if (categoryShortName == undefined) categoryShortName = '';
+      var query = "/menu_items.json?category=" + categoryShortName;
+      return getData(query).then(function (result) {
         items = result.data.menu_items;
         return items;
       })
