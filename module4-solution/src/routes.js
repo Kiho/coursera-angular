@@ -35,6 +35,9 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
                   return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
                 }]
       },
+      params: {
+        categoryShortName: null
+      }
     });
 }
 
