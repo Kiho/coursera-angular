@@ -35,8 +35,8 @@ function ValidMenuItem($q, MenuService){
   }
 }
 
-SignUpController.$inject = ['FormService', 'MenuService'];
-function SignUpController(FormService, MenuService) {
+SignUpController.$inject = ['FormService'];
+function SignUpController(FormService) {
   var signUp = this;
 
   signUp.submit = function () {
